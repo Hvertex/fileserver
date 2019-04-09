@@ -1,10 +1,15 @@
 package main
 
 import (
-	"fmt"
+	"fileserver/handler"
+	"net/http"
 )
 
 func main() {
 
-	fmt.Print("echo 11")
+	// 路由
+	http.HandleFunc("/file/upload", handler.UploadFileHandler)
+	http.HandleFunc("/file/upload/suc", handler.UploadSuccess)
+
+	http.ListenAndServe(":8080", nil)
 }
