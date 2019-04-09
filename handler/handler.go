@@ -14,7 +14,7 @@ func UploadFileHandler(w http.ResponseWriter, r *http.Request) {
 			fmt.Printf("read file error, %v", err.Error())
 			return
 		}
-		w.Write(data)
+		w.WriteString(data)
 	} else {
 		// 执行上传
 	}
